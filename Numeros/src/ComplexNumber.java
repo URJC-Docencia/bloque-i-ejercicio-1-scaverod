@@ -4,8 +4,12 @@
  * and open the template in the editor.
  */
 
+import java.util.Objects;
+
 public class ComplexNumber {
 
+    private double re;
+    private double im;
 
     /**
      * Constructor of the ComplexNumber
@@ -34,7 +38,7 @@ public class ComplexNumber {
     /**
      * Adds c to the ComplexNumber
      *
-     * @param c number to add
+     * @param d number to add
      * @return this + c
      */
     public ComplexNumber add(ComplexNumber c) {
@@ -48,7 +52,7 @@ public class ComplexNumber {
      * @return this - c
      */
     public ComplexNumber subtract(ComplexNumber c) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return new ComplexNumber(re-c.re, im-c.im);
     }
 
     /**
@@ -91,5 +95,27 @@ public class ComplexNumber {
     public double module() {
         throw new UnsupportedOperationException("Not supported yet.");
 
+    }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) return true;
+        if (obj == null) return false;
+        ComplexNumber c = (ComplexNumber) obj;
+        return Double.compare(re , c.re)==0 && Double.compare(im, c.im)==0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(re, im);
+    }
+
+
+    public static class ComplexNumberException extends Exception {
+
+        public ComplexNumberException(String message) {
+            super("Complex Number exception");
+        }
     }
 }
