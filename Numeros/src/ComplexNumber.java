@@ -83,8 +83,7 @@ public class ComplexNumber {
      * @return a - ib
      */
     public ComplexNumber conjugate() {
-        throw new UnsupportedOperationException("Not supported yet.");
-
+        return new ComplexNumber(re,-im);
     }
 
     /**
