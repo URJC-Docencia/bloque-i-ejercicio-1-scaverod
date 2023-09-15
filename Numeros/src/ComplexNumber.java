@@ -18,21 +18,22 @@ public class ComplexNumber {
      * @param b imaginary part
      */
     ComplexNumber(double a, double b) {
-
+        re=a;
+        im=b;
     }
 
     /**
      * @return the real part of the ComplexNumber
      */
     public double realPart() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return re;
     }
 
     /**
      * @return the imaginary part of the ComplexNumber
      */
     public double imaginaryPart() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return im;
     }
 
     /**
@@ -62,8 +63,9 @@ public class ComplexNumber {
      * @return this * c2
      */
     public ComplexNumber multiply(ComplexNumber c) {
-        throw new UnsupportedOperationException("Not supported yet.");
-
+        re = re * c.re - im * c.im;
+        im = im * c.re + re * c.im;
+        return this;
     }
 
     /**
