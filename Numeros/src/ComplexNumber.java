@@ -72,9 +72,12 @@ public class ComplexNumber {
      * @param c divider
      * @return this / c
      */
-    public ComplexNumber division(ComplexNumber c) {
-        throw new UnsupportedOperationException("Not supported yet.");
-
+    public ComplexNumber division(ComplexNumber c) throws ComplexNumberException {
+        // Check avoid division by 0
+        if (c.re == 0 && c.im == 0) {
+            throw new ComplexNumberException("Division by 0");
+        }
+        return new ComplexNumber((re * c.re + im * c.im) / (c.re * c.re + c.im * c.im), (im * c.re - re * c.im) / (c.re * c.re + c.im * c.im));
     }
 
     /**
