@@ -50,4 +50,35 @@ public class ComplexNumberTest {
         ComplexNumber c= new ComplexNumber(8,-2);
         assertEquals("Comprobando que la parte imaginaria es 2", 2, c.conjugate().imaginaryPart(), 0.01);
     }
+
+    /**
+     * Test different ways to catch an exception.
+     * AssertThrows()
+     */
+    @Test
+    public void testException1() {
+        ComplexNumber c1 = new ComplexNumber(4, -3);
+        ComplexNumber c2 = new ComplexNumber(0, 0);
+        assertThrows(ComplexNumber.ComplexNumberException.class, () -> {
+            c1.division(c2);
+        });
+    }
+
+    /**
+     * Test different ways to catch an exception.
+     * fail()
+     */
+    @Test
+    public void testException2() {
+        ComplexNumber c1 = new ComplexNumber(4, -3);
+        ComplexNumber c2 = new ComplexNumber(0, 0);
+        try {
+            c1.division(c2);
+            // If we reach this point, the test has failed
+            fail();
+        } catch (ComplexNumber.ComplexNumberException e) {
+            // If we reach this point, the test has passed
+            assert true;
+        }
+    }
 }
