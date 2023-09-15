@@ -41,8 +41,8 @@ public class ComplexNumber {
      * @param d number to add
      * @return this + c
      */
-    public ComplexNumber add(ComplexNumber c) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public ComplexNumber add(ComplexNumber d)    {
+        return new ComplexNumber(re+d.realPart(), im+d.imaginaryPart());
     }
 
     /**
